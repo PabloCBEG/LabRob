@@ -12,7 +12,7 @@ int IN4 = 6;  //giro hacia atras
 unsigned long mytime = 0; //variable para almacenar el tiempo entre dos medidas
 int modo = 1;             //modo de funcionamiento: 1=control frontal
 int veli, veld;           //variables que usamos para el archivo que pasamos a telemetria: velocidades de las ruedas izda y dcha. Se actualizan cuando llamamos a las funciones de movimiento
-//char tiempo[10];
+//char tiempo[10];//
 //float tempus;
 
 //MACROS pines sensores ultrasonidos
