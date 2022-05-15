@@ -1,0 +1,198 @@
+
+$p  1  1 0 0 0 0 0 0 0
+$p  2  1 POS1 -4771  10675 -10138 -1054  1033 0
+$p  3  1 POS2 -4772  13444 -10855 -1057  1032 0
+$p  4  1 POS3 -1812  11259 -9388 -1914  185 0
+$p  5  1 POS4 -1814  14012 -9880 -1917  184 0
+$p  6  1 ZERO -10169  255  357 -693  679 0
+$p  7  1 POS6 -3021  12703 -13756 -4077 -1974 0
+$p  8  1 POS5 -3018  9466 -12527 -4075 -1972 0
+$p  9  1 POS8  2937  13141 -11726 -2364 -197 0
+$p  10  1 POS7  2937  10281 -10860 -2360 -193 0
+$p  11  1 POS10  5234  13284 -11420 -2815 -642 0
+$p  12  1 POS9  5233  10460 -10629 -2812 -640 0
+$p  13  1 POS12  3954  12207 -11510 -4448 -2341 0
+$p  14  1 POS11  3952  9395 -10255 -4445 -2338 0
+$p  1  2 00 0 0 0 0 0 0
+$pr  1 P3
+$pr  2 P4
+$pr  3 P5
+$par  1 -400  120  333 0 0  50  12  30
+$par  9 0  44 0 0 0 0 0 0
+$par  17 0 0 0 0  200  200  200  250
+$par  25  250  180  700  700  700  700  700 0
+$par  33  12770 -10216  10216  5022  5022 0 0 0
+$par  41  250  250  250  300  300  500  500  500
+$par  49  500  500  500 0  13653 -2867  1773 0
+$par  57 0 0 0 0  1000  2500  2500  1200
+$par  65  1200  1500  1200  1200  1200  1200  1200  1
+$par  73  5400 0  3500  5 0  1  2 0
+$par  81 0 0 0 0 0 0 0 0
+$par  89 0 0 0 0  160  3490  2210  2210
+$par  97  1450 0 0 0  24330  17160  21000  16000
+$par  105  16000  32767  32767  32767  32767  32767  32767 0
+$par  113 0 0 0 0 0 0 0 0
+$par  121 -18830 -400 -32000 -16000 -16000 -32768 -32768 -32768
+$par  129 -32768 -32768 -32768 0 0 0 0 0
+$par  137 0 0 0 0  3000  3000  3000  3000
+$par  145  3000  3000  16000  16000  16000  16000  16000 0
+$par  153 0 0 0 0 0 0 0 0
+$par  161  4500  4500  4500  4500  4500  4900  4500  4500
+$par  169  4500  4500  4500 0 0 0 0 0
+$par  177 0 0 0 0  5  5  3  5
+$par  185  5  25  10  10  10  10  10 0
+$par  193 0 0 0 0 0 0 0 0
+$par  201  4500  4000  4000  4000  4000  4000  3000  3000
+$par  209  3000  3000  3000 0 0 0 0 0
+$par  217 0 0 0 0  4500  6000  6000  3000
+$par  225  3000  6000  3000  3000  3000  3000  3000 0
+$par  233 0 0 0 0 0 0 0 0
+$par  241  24  24  30  24  24  12  5  5
+$par  249  5  5  5 0 0 0 0 0
+$par  257 0 0 0 0  20  20  20  20
+$par  265  20  10  10  10  10  10  10  1
+$par  273 0 0 0 0 0 0 0 0
+$par  281  4600  4600  4000  4600  4600  4900  4000  4000
+$par  289  4000  4000  4000 0 0  8000  50  40
+$par  297  50  30  660  15 0 0 0 0
+$par  305 0 0 0 0 0 0 0
+
+                PROGRAM   P3
+                *********************
+
+MOVED     POS1 
+OPEN      
+MOVED     POS2 
+CLOSE     
+MOVED     POS1 
+MOVED     POS3 
+MOVED     POS4 
+OPEN      
+MOVED     POS3 
+MOVED     POS1 
+MOVED     POS3 
+MOVED     POS4 
+CLOSE     
+MOVED     POS3 
+MOVED     POS1 
+MOVED     POS2 
+OPEN      
+MOVED     POS1 
+END       
+
+                PROGRAM   P4
+                *********************
+
+SPEED     70
+MOVED     ZERO 
+MOVED     POS1 
+OPEN      
+SPEED     25
+MOVELD    POS2 
+CLOSE     
+MOVELD    POS1 
+SPEED     70
+MOVED     POS3 
+SPEED     25
+MOVELD    POS4 
+OPEN      
+MOVELD    POS3 
+SPEED     70
+MOVED     ZERO 
+MOVED     POS3 
+SPEED     25
+MOVELD    POS4 
+CLOSE     
+MOVELD    POS3 
+SPEED     70
+MOVED     POS1 
+SPEED     25
+MOVELD    POS2 
+OPEN      
+MOVELD    POS1 
+SPEED     70
+MOVED     ZERO 
+END       
+
+                PROGRAM   P5
+                *********************
+
+SPEED     70
+MOVED     ZERO 
+MOVED     POS1 
+SPEED     25
+OPEN      
+MOVELD    POS2 
+CLOSE     
+MOVELD    POS1 
+SPEED     70
+MOVED     POS7 
+SPEED     25
+MOVELD    POS8 
+OPEN      
+MOVELD    POS7 
+SPEED     70
+MOVED     POS3 
+SPEED     25
+MOVELD    POS4 
+CLOSE     
+MOVELD    POS3 
+SPEED     70
+MOVED     POS9 
+SPEED     25
+MOVELD    POS10 
+OPEN      
+MOVELD    POS9 
+SPEED     70
+MOVED     POS5 
+SPEED     25
+MOVELD    POS6 
+CLOSE     
+MOVELD    POS5 
+SPEED     70
+MOVED     POS11 
+SPEED     25
+MOVELD    POS12 
+OPEN      
+MOVELD    POS11 
+SPEED     70
+MOVED     ZERO 
+MOVED     POS11 
+SPEED     25
+MOVELD    POS12 
+CLOSE     
+MOVELD    POS11 
+SPEED     70
+MOVED     POS5 
+SPEED     25
+MOVELD    POS6 
+OPEN      
+MOVELD    POS5 
+SPEED     70
+MOVED     POS9 
+SPEED     25
+MOVELD    POS10 
+CLOSE     
+MOVELD    POS9 
+SPEED     70
+MOVED     POS3 
+SPEED     25
+MOVELD    POS4 
+OPEN      
+MOVELD    POS3 
+SPEED     70
+MOVED     POS7 
+SPEED     25
+MOVELD    POS8 
+CLOSE     
+MOVELD    POS7 
+SPEED     70
+MOVED     POS1 
+SPEED     25
+MOVELD    POS2 
+OPEN      
+MOVELD    POS1 
+SPEED     70
+MOVED     ZERO 
+END       
+(END)

@@ -1,0 +1,139 @@
+
+$v  1 POSR2 0
+$p  1  1 0 0 0 0 0 0 0
+$p  2  1 POUT  2021  11719 -9133 -659  655 0
+$p  3  1 POS1 -13335  9863 -5942  1114  2278 0
+$p  4  1 POSR -11690  6545  363 -2943 -6072 0
+$p  5  1 POSH  1967  5490 -5785 -713  41 0
+$p  6  1 POUT1  32767 0 0 0 0 0
+$p  7  1 POS2  2025  13635 -9464 -668  650 0
+$p  8  1 POSR2 -11690  6545  363 -2415 -6960 0
+$p  9  1 POUT2 -13330  8977 -4476  1105  2269 0
+$p  10  1 POFF -13330  8977 -4476  1105  2269 0
+$p  1  2 00 0 0 0 0 0 0
+$pr  1 CARGA
+$pr  2 DESCA
+$pr  3 METAL
+$pr  4 PROG_
+$pr  5 CMET
+$par  1 -400  120  333 0 0  50  12  30
+$par  9 0  44 0 0 0 0 0 0
+$par  17 0 0 0 0  200  200  200  250
+$par  25  250  180  700  700  700  700  700 0
+$par  33  12770 -10216  10216  5022  5022 0 0 0
+$par  41  250  250  250  300  300  500  500  500
+$par  49  500  500  500 0  13653 -2867  1773 0
+$par  57 0 0 0 0  1000  2500  2500  1200
+$par  65  1200  1500  1200  1200  1200  1200  1200  1
+$par  73  5400 0  3500  5 0  1  2 0
+$par  81 0 0 0 0 0 0 0 0
+$par  89 0 0 0 0  160  3490  2210  2210
+$par  97  1450 0 0 0  24330  17160  21000  16000
+$par  105  16000  32767  32767  32767  32767  32767  32767 0
+$par  113 0 0 0 0 0 0 0 0
+$par  121 -18830 -400 -32000 -16000 -16000 -32768 -32768 -32768
+$par  129 -32768 -32768 -32768 0 0 0 0 0
+$par  137 0 0 0 0  3000  3000  3000  3000
+$par  145  3000  3000  16000  16000  16000  16000  16000 0
+$par  153 0 0 0 0 0 0 0 0
+$par  161  4500  4500  4500  4500  4500  4900  4500  4500
+$par  169  4500  4500  4500 0 0 0 0 0
+$par  177 0 0 0 0  5  5  3  5
+$par  185  5  25  10  10  10  10  10 0
+$par  193 0 0 0 0 0 0 0 0
+$par  201  4500  4000  4000  4000  4000  4000  3000  3000
+$par  209  3000  3000  3000 0 0 0 0 0
+$par  217 0 0 0 0  4500  6000  6000  3000
+$par  225  3000  6000  3000  3000  3000  3000  3000 0
+$par  233 0 0 0 0 0 0 0 0
+$par  241  24  24  30  24  24  12  5  5
+$par  249  5  5  5 0 0 0 0 0
+$par  257 0 0 0 0  20  20  20  20
+$par  265  20  10  10  10  10  10  10  1
+$par  273 0 0 0 0 0 0 0 0
+$par  281  4600  4600  4000  4600  4600  4900  4000  4000
+$par  289  4000  4000  4000 0 0  8000  50  40
+$par  297  50  30  660  15 0 0 0 0
+$par  305 0 0 0 0 0 0 0
+
+                PROGRAM   CARGA
+                *********************
+
+OPEN      
+SHIFTC    POUT BY Z  700
+SPEED     50
+MOVED     POUT 
+SPEED     20
+SHIFTC    POUT BY Z  -700
+MOVED     POUT 
+CLOSE     
+SHIFTC    POUT BY Z  700
+MOVED     POUT 
+END       
+
+                PROGRAM   DESCA
+                *********************
+
+SET       OUT[7] = 0
+SHIFTC    POUT BY Z  700
+SPEED     40
+MOVED     POUT 
+SPEED     20
+SHIFTC    POUT BY Z  -700
+MOVED     POUT 
+OPEN      
+SET       OUT[11] = 1
+SHIFTC    POUT BY Z  700
+MOVED     POUT 
+END       
+
+                PROGRAM   METAL
+                *********************
+
+STOP      PROG_
+OPEN      
+WAIT      IN[2] = 1
+SETP      POUT=POS1
+GOSUB     CARGA
+SPEED     40
+MOVED     POSR 
+SET       OUT[5] = 1
+WAIT      IN[4] = 1
+OPEN      
+MOVED     POSR2 
+SET       OUT[6] = 1
+MOVED     POSH 
+SET       OUT[5] = 0
+SET       OUT[6] = 0
+GOSUB     PROG_
+END       
+
+                PROGRAM   PROG_
+                *********************
+
+LABEL     1
+SET       OUT[5] = 0
+SET       OUT[6] = 0
+SET       OUT[11] = 0
+MOVED     POSH 
+TRIGGER   METAL BY  IN 1 1
+WAIT      IN[2] = 1
+SETP      POUT=POS1
+GOSUB     CARGA
+SETP      POUT=POS2
+GOSUB     DESCA
+GOTO      1
+END       
+
+                PROGRAM   CMET
+                *********************
+
+OPEN      
+SPEED     60
+MOVED     POUT2 
+SPEED     30
+MOVED     POUT 
+CLOSE     
+MOVED     POUT2 
+END       
+(END)
