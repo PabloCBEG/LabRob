@@ -26,12 +26,12 @@ end
 
 
 subplot(2,1,1);
-plot(tiempo,tel(:,4), tiempo, tel(:,6), tiempo, tel(:,7));%referencia, velocidad rueda dcha, vel rueda izda
+plot(tiempo,tel(:,2), tiempo,tel(:,3), tiempo,tel(:,4));
 xlabel('Tiempo (ms)');
 title('Sensores');
 
 subplot(2,1,2);
-plot(tiempo,tel(:,5), tiempo,tel(:,8), tiempo,tel(:,9));%acciones de control y modo
+plot(tiempo,tel(:,5), tiempo,tel(:,6), tiempo,tel(:,7));
 title('Actuadores');
 xlabel('Tiempo (ms)');
 
